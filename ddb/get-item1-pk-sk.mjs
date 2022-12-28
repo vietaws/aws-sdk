@@ -22,19 +22,21 @@ const handler = async (event, context) => {
         '#rkey': 'SK',
       },
       ExpressionAttributeValues: {
-        ':hvalue': 'number-demo',
-        ':rvalue': '7',
+        ':hvalue': 'viet',
+        ':rvalue': '2',
       },
       // ConsistentRead: true,
-      ReturnConsumedCapacity: 'TOTAL',
+      // ReturnConsumedCapacity: 'TOTAL',
     });
+
     console.log(`${res.Items.length} Items: ${JSON.stringify(res.Items)}`);
-    console.log(
-      // `Created item successfully!`
-      `Get item successfully! WCU: ${res.ConsumedCapacity.CapacityUnits}`
-    );
+    // console.log(
+
+    //   `Get item successfully! WCU: ${res.ConsumedCapacity.CapacityUnits}`
+    // );
     const t2 = new Date();
     console.log(`End time: ${t2}`);
+
     console.log(`Total time: ${t2.getTime() - t1.getTime()}`);
   } catch (error) {
     if (error instanceof Error) console.log(error.message);
