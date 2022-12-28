@@ -3,12 +3,13 @@ import {
   CreateTableCommand,
   KeyType,
 } from '@aws-sdk/client-dynamodb'; // ES Modules import
+import { CONFIG } from './0-config.mjs';
 // const { DynamoDBClient, CreateTableCommand } = require("@aws-sdk/client-dynamodb"); // CommonJS import
 const client = new DynamoDBClient({ region: 'ap-southeast-1' });
 
 const handler = async () => {
   const command = new CreateTableCommand({
-    TableName: 'big-user-table',
+    TableName: CONFIG.DB_NAME,
     BillingMode: 'PAY_PER_REQUEST',
     KeySchema: [
       {
@@ -23,7 +24,7 @@ const handler = async () => {
     AttributeDefinitions: [
       {
         AttributeName: 'PK',
-        AttributeType: 'S',
+        AttributeType: 'N',
         // KeyType: 'HASH',
       },
       {

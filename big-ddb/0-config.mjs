@@ -1,3 +1,3 @@
 export const CONFIG = {
-  DB_NAME: 'cog1',
+  DB_NAME: 'big-user-table',
 };
