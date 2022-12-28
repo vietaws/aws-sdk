@@ -5,6 +5,8 @@
 import { DynamoDB } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocument } from '@aws-sdk/lib-dynamodb';
 
+const t1 = new Date();
+console.log(`Start time: ${t1}`);
 // Full DynamoDB Client
 const client = new DynamoDB({});
 const ddbDocClient = DynamoDBDocument.from(client); // client is DynamoDB client
@@ -56,5 +58,7 @@ const handler = async (event, context) => {
 };
 
 handler();
-
+const t2 = new Date();
+console.log(`End time: ${t2}`);
+console.log(`Processed time: ${t2.getTime() - t1.getTime()}`);
 export { handler };

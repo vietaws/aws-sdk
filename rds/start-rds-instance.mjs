@@ -39,3 +39,5 @@ const handler = async (event) => {
 };
 
 handler();
+
+export { handler };
