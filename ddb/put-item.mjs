@@ -2,7 +2,7 @@
 import { DynamoDB } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocument, PutCommand } from '@aws-sdk/lib-dynamodb';
 // import { nanoid } from 'nanoid';
-
+const t1 = new Date();
 // Full DynamoDB Client
 const client = new DynamoDB({});
 const ddbDocClient = DynamoDBDocument.from(client); // client is DynamoDB client
@@ -15,7 +15,7 @@ const handler = async (event, context) => {
       Item: {
         PK: 'Test',
         // SK: new Date().toISOString(),
-        SK: t1.getTime().toString(),
+        SK: 'Test',
       },
       ConditionExpression: `attribute_not_exists(PK) AND attribute_not_exists(SK)`,
       ReturnConsumedCapacity: 'TOTAL',
